@@ -1,11 +1,18 @@
+
 ```mermaid
 flowchart TD
-   A[Start Game] --> B[Display Question]
-   B --> C[Get User Answer]
-   C --> D{Is Answer Correct?}
-   D -- Yes --> E[Update Score]
-   D -- No --> F[Show Correct Answer]
-   E --> G{More Questions?}
-   F --> G
-   G -- Yes --> B
-   G -- No --> H[End Game]
+    A[Start] --> B[Check Eligibility]
+    B -->|Eligible| C[Prepare Required Documents]
+    B -->|Not Eligible| Z[End]
+    C --> D[Fill Application Form]
+    D --> E[Submit Application]
+    E --> F[Pay Application Fee]
+    F --> G[Take Written Test]
+    G -->|Pass| H[Take Driving Test]
+    G -->|Fail| Y[Retake Written Test]
+    H -->|Pass| I[Receive Driver's License]
+    H -->|Fail| X[Retake Driving Test]
+    Y --> G
+    X --> H
+    I --> Z
+    Z[End]
